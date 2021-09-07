@@ -1,8 +1,4 @@
-src/__pycache__
-src/data/__pycache__
-src/features/__pycache__
-src/models/__pycache__
-src/visualization/__pycache__
+__pycache__
 src.egg-info
 .DS_Store
 .ipynb_checkpoints
