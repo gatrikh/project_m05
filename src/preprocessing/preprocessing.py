@@ -35,7 +35,7 @@ def split_data(df):
         
         subset = df[df["label"] == label]
         
-        if subset.shape[0] > 5:
+        if subset.shape[0] >= 10:
             
             train_temp,test_temp = train_test_split(subset, test_size=0.4, random_state=0)
             val_temp, test_temp = train_test_split(test_temp, test_size=0.5, random_state=0)
