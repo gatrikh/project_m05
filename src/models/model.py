@@ -5,14 +5,14 @@ import inspect
 from tqdm import tqdm
 from src.visualization import visualize as vis
 
+def get_x_y_from_df(df):
 
-def train_model(train, val, parameters): 
-    
-    x_train = train.drop(["label"], axis="columns")
-    y_train = train["label"]
+    x = df.drop(["label"], axis="columns")
+    y = df["label"]
 
-    x_val = val.drop(["label"], axis="columns")
-    y_val = val["label"]
+    return x, y
+
+def generate_models_parameters(parameters): 
     
     models_parameters = []
     name_parameters = []
@@ -26,7 +26,14 @@ def train_model(train, val, parameters):
         for parameter_count, parameter in enumerate(model_parameters):
             model_dict[name_parameters[parameter_count]] = parameter
         models_dict[model_count] = model_dict
+
+    return models_dict
+
+def train_validate_models(train, val, models_dict): 
     
+    x_train, y_train = get_x_y_from_df(train)
+    x_val, y_val = get_x_y_from_df(val)
+
     results = list()
     for key in tqdm(models_dict): 
         clf = RandomForestClassifier(
@@ -45,12 +52,22 @@ def train_model(train, val, parameters):
 
     result = results.index(max(results))
 
+    return models_dict[result]
+
+def train_model(train, val, parameters): 
+    
+    x_train, y_train = get_x_y_from_df(train)
+    x_val, y_val = get_x_y_from_df(val)
+
+    models = generate_models_parameters(parameters)
+    best_model = train_validate_models(train, val, models)
+
     clf = RandomForestClassifier(
-            n_estimators=models_dict[result]["n_estimators"], 
-            criterion=models_dict[result]["criterion"],
-            max_depth=models_dict[result]["max_depth"],
-            min_samples_split=models_dict[result]["min_samples_split"],
-            max_features=models_dict[result]["max_features"],
+            n_estimators=best_model["n_estimators"], 
+            criterion=best_model["criterion"],
+            max_depth=best_model["max_depth"],
+            min_samples_split=best_model["min_samples_split"],
+            max_features=best_model["max_features"],
             random_state=0, 
             n_jobs=-1)
             
