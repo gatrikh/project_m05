@@ -20,7 +20,6 @@ def features_encoder(df):
 def normalize_df(df): 
     return None
 
-# TODO
 def split_data(df): 
     
     df = df.copy()   

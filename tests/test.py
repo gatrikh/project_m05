@@ -1,6 +1,7 @@
 import unittest
 import numpy as np
 import pandas as pd
+from pandas.core.frame import DataFrame
 from sklearn.model_selection import train_test_split
 
 from src.data import data as data
@@ -10,22 +11,26 @@ from src.visualization import visualize as vis
 
 class TestData(unittest.TestCase):
 
-    def test_sum(self):
-        self.assertEqual(sum([1, 2, 3]), 6, "Should be 6")
+    def test_load_data(self):
+        df = data.load_data("data/kddcup.data.gz")
 
-    def test_sum_tuple(self):
-        self.assertEqual(sum((1, 2, 3)), 6, "Should be 6")
+        self.assertEqual(df.shape[0], 4898431, "Should be 4898431")
+        self.assertEqual(df.shape[1], 42, "Should be 42")
 
 class TestPreprocessing(unittest.TestCase):
     
     @classmethod
     def setUpClass(cls):
         
-        cls.df = data.load_data("../data/kddcup.data.gz")
+        cls.df = data.load_data("data/kddcup.data.gz")
         cls.df = preprocess.features_encoder(cls.df)
         cls.train_df, cls.val_df, cls.test_df = preprocess.split_data(cls.df)
 
-    
+    def test_features_encoder(self):
+
+        for col in self.df.columns: 
+            self.assertEqual(self.df[col].dtype == "object", False, "Should be False")
+
     def test_df_split(self):
         
         train_labelCounts = self.train_df["label"].cat.remove_unused_categories().value_counts().to_numpy()
