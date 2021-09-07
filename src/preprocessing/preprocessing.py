@@ -18,14 +18,6 @@ def features_encoder(df):
     
     return df
 
-def pca_reduction(df):
-    
-    pca = decomposition.PCA(n_components=0.99)
-
-    df_norm_pca = pca.fit_transform(df_norm)
-    
-    return df_norm_pca
-
 def normalize(df): 
     
     df = df.copy()
@@ -35,15 +27,23 @@ def normalize(df):
             df[col] = scaler.fit_transform(df[col].to_numpy().reshape(-1, 1))
    
     return df
-    
-    
 
+def pca_reduction(df):
+    
+    col_label = df["label"].copy()
+    pca = decomposition.PCA(n_components=0.99) 
+    principal_components = pca.fit_transform(df.drop(["label"], axis=1))
+    pca_df = pd.DataFrame(data = principal_components, index=df.index, columns=['PCA%i' % i for i in range(principal_components.shape[1])])
+
+    pca_df = pd.concat([pca_df, col_label], axis=1)
+    
+    return pca_df
 
 def split_data(df): 
     
     df = df.copy()   
-    
     nbr_label = pd.unique(df["label"])
+    nbr_label = nbr_label.sort_values()
     
     train_df = pd.DataFrame()
     val_df = pd.DataFrame()
@@ -53,14 +53,28 @@ def split_data(df):
         
         subset = df[df["label"] == label]
         
-        if subset.shape[0] >= 10:
+        if subset.shape[0] >= 4:
             
             train_temp,test_temp = train_test_split(subset, test_size=0.4, random_state=0)
             val_temp, test_temp = train_test_split(test_temp, test_size=0.5, random_state=0)
             
-            train_df = pd.concat([train_df,train_temp])
-            val_df = pd.concat([val_df,val_temp])
-            test_df = pd.concat([test_df,test_temp])
+            train_df = pd.concat([train_df, train_temp])
+            val_df = pd.concat([val_df, val_temp])
+            test_df = pd.concat([test_df, test_temp])
+        
+        elif subset.shape[0] == 3: 
+
+            train_df = train_df.append(subset.iloc[0])
+            val_df = val_df.append(subset.iloc[1])
+            test_df = test_df.append(subset.iloc[2])
+
+        elif subset.shape[0] == 2:
+            train_df = train_df.append(subset.iloc[0])
+            val_df = val_df.append(subset.iloc[1])
+            
+
+        elif subset.shape[0] == 1: 
+            train_df = train_df.append(subset.iloc[0])
 
     return train_df, val_df, test_df
     
