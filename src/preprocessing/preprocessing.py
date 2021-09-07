@@ -23,20 +23,26 @@ def normalize_df(df):
 # TODO
 def split_data(df): 
     
-    df = df.copy()
+    df = df.copy()   
     
-    normal_df = df[df["label"] == 1]
-    abnormal_df = df[df["label"] == -1]
+    nbr_label = pd.unique(df["label"])
     
-    train_normal, test_normal = train_test_split(normal_df, test_size=0.4, random_state=0)
-    val_normal, test_normal = train_test_split(test_normal, test_size=0.5, random_state=0)
+    train_df = pd.DataFrame()
+    val_df = pd.DataFrame()
+    test_df = pd.DataFrame()
     
-    train_abnormal, test_abnormal = train_test_split(abnormal_df, test_size=0.4, random_state=0)
-    val_abnormal, test_abnormal = train_test_split(test_abnormal, test_size=0.5, random_state=0)
-    
-    train_df = pd.concat([train_normal, train_abnormal]).reset_index(drop=True)
-    val_df = pd.concat([val_normal, val_abnormal]).reset_index(drop=True)
-    test_df = pd.concat([test_normal, test_abnormal]).reset_index(drop=True)
-    
+    for label in nbr_label:
+        
+        subset = df[df["label"] == label]
+        
+        if subset.shape[0] >= 10:
+            
+            train_temp,test_temp = train_test_split(subset, test_size=0.4, random_state=0)
+            val_temp, test_temp = train_test_split(test_temp, test_size=0.5, random_state=0)
+            
+            train_df = pd.concat([train_df,train_temp])
+            val_df = pd.concat([val_df,val_temp])
+            test_df = pd.concat([test_df,test_temp])
+
     return train_df, val_df, test_df
     
