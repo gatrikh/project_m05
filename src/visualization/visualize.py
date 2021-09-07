@@ -28,4 +28,4 @@ def accuracy(labels, pred, show=False):
         print(f"Correct: {correct}")
         print(f"Incorrect: {incorrect}")
 
-    return acc
+    return acc, correct, incorrect
