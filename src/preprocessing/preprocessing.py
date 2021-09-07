@@ -28,17 +28,6 @@ def normalize(df):
    
     return df
 
-def pca_reduction(df):
-    
-    col_label = df["label"].copy()
-    pca = decomposition.PCA(n_components=0.99) 
-    principal_components = pca.fit_transform(df.drop(["label"], axis=1))
-    pca_df = pd.DataFrame(data = principal_components, index=df.index, columns=['PCA%i' % i for i in range(principal_components.shape[1])])
-
-    pca_df = pd.concat([pca_df, col_label], axis=1)
-    
-    return pca_df
-
 def split_data(df): 
     
     df = df.copy()   

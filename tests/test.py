@@ -41,13 +41,6 @@ class TestPreprocessing(unittest.TestCase):
 
         np.testing.assert_allclose(array_1, array_2, err_msg="Normalization test failed", atol=0.0005)
 
-    def test_pca_reduction(self): 
-        
-        df_norm = preprocess.normalize(self.df)
-        df_pca = preprocess.pca_reduction(df_norm)
-        self.assertEqual(df_pca.shape[1], 21, "Should be 21")
-        self.assertEqual("label" in df_pca.columns, True, "Should be True")
-
     def test_df_split(self):
 
         nbr_label = pd.unique(self.df["label"])
