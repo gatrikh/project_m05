@@ -1,6 +1,8 @@
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn import decomposition
 
 def features_encoder(df):
     
@@ -16,11 +18,27 @@ def features_encoder(df):
     
     return df
 
-# TODO
-def normalize_df(df): 
-    return None
+def pca_reduction(df):
+    
+    pca = decomposition.PCA(n_components=0.99)
 
-# TODO
+    df_norm_pca = pca.fit_transform(df_norm)
+    
+    return df_norm_pca
+
+def normalize(df): 
+    
+    df = df.copy()
+    for col in df.columns:
+        scaler = StandardScaler()
+        if str(df[col].dtypes) != "category":
+            df[col] = scaler.fit_transform(df[col].to_numpy().reshape(-1, 1))
+   
+    return df
+    
+    
+
+
 def split_data(df): 
     
     df = df.copy()
