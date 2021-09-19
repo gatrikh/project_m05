@@ -44,7 +44,7 @@ def split_data(df):
         
         if subset.shape[0] >= 4:
             
-            train_temp,test_temp = train_test_split(subset, test_size=0.4, random_state=0)
+            train_temp, test_temp = train_test_split(subset, test_size=0.4, random_state=0)
             val_temp, test_temp = train_test_split(test_temp, test_size=0.5, random_state=0)
             
             train_df = pd.concat([train_df, train_temp])
@@ -59,9 +59,8 @@ def split_data(df):
 
         elif subset.shape[0] == 2:
             train_df = train_df.append(subset.iloc[0])
-            val_df = val_df.append(subset.iloc[1])
+            test_df = test_df.append(subset.iloc[1])
             
-
         elif subset.shape[0] == 1: 
             train_df = train_df.append(subset.iloc[0])
 
