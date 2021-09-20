@@ -6,7 +6,6 @@ click
 numpy
 pandas
 pytest
-itertools
 ipython-autotime
 tqdm
 importlib
