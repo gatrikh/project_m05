@@ -20,16 +20,12 @@ def memory(df):
     return round(df.memory_usage(index=True).sum() / 1000000, 2)
 
 
-def accuracy(labels, pred, show=False):
+def accuracy(labels, pred):
 
-    correct = np.sum(pred==labels)
+    correct = int(np.sum(pred==labels))
     total = labels.shape[0]
     incorrect = total - correct
     acc = correct/total
-
-    if show: 
-        print(f"Correct: {correct}")
-        print(f"Incorrect: {incorrect}")
 
     return acc, correct, incorrect
 

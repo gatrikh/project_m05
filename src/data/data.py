@@ -10,6 +10,6 @@ def load_data(path):
             "dst_host_same_srv_rate", "dst_host_diff_srv_rate", "dst_host_same_src_port_rate", "dst_host_srv_diff_host_rate",
             "dst_host_serror_rate", "dst_host_srv_serror_rate", "dst_host_rerror_rate", "dst_host_srv_rerror_rate", "label"]
 
-    df = pd.read_csv(path, compression='gzip', delimiter=",", names=columns)
+    df = pd.read_csv(path, compression='gzip', delimiter=",", names=columns, low_memory=False)
 
     return df
