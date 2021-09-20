@@ -3,6 +3,16 @@
 
 # external requirements
 click
+numpy
+pandas
+pytest
+itertools
+ipython-autotime
+tqdm
+importlib
+sklearn
+matplotlib
+Ipython
 Sphinx
 coverage
 awscli

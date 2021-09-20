@@ -1,7 +1,6 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 import itertools
-import inspect 
 from tqdm import tqdm
 from src.visualization import visualize as vis
 

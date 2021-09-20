@@ -3,7 +3,6 @@ import numpy as np
 from IPython.display import display
 from sklearn.metrics import plot_confusion_matrix
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 def dsp(data, rows=10, columns=None):
     
