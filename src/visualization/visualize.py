@@ -44,8 +44,6 @@ def get_confusion_matrix(classifier,x_test,y_test,save_fig = False,savefile_name
     disp1.ax_.set_title("Confusion matrix, without normalization")
     disp1.ax_.autoscale
     
-    
-
     if save_fig :
         if savefile_name != "":
             savefile_name_normalized = "normalized_" + savefile_name
