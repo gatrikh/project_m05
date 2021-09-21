@@ -60,8 +60,8 @@ class TestModels:
         train_df, val_df, test_df, parameters = config
         model_parameters = {'n_estimators': 50, 'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2, 'max_features': "auto"}
         clf = model.train_model(train_df, val_df, model_parameters)
-        model.write_model(clf, "model_rfc_test.pkl")
-        clf_1 = model.read_model("model_rfc_test.pkl")
+        model.write_model(clf, "model_rfc_test", "")
+        clf_1 = model.read_model("model_rfc_test", "")
         assert type(clf) == type(clf_1)
         assert os.path.isfile("model_rfc_test.pkl")
         os.remove("model_rfc_test.pkl")

@@ -52,13 +52,14 @@ class TestPreprocessing:
         assert 0.9 < acc and acc < 1.0
         
     def test_get_confusion_matrix(self, config):
-        _, _, test_df, _ = config 
+        train_df, val_df, test_df, _ = config 
+    
+        model_paramters = {'n_estimators': 150, 'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2, 'max_features': None}
+        clf = model.train_model(train_df, val_df, model_paramters)
+        
         x_test, y_test = model.get_x_y_from_df(test_df)
-        
-        #TODO
-        classifier = model.read_model('./src/models/')
-        
-        vis.get_confusion_matrix(classifier,x_test,y_test,True,"unit_test")
+
+        vis.get_confusion_matrix(clf, x_test, y_test, True, "unit_test", "")
         assert os.path.exists('normalized_unit_test.png')
         os.remove('normalized_unit_test.png')
         assert os.path.exists('unnormalized_unit_test.png')

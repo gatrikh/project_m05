@@ -74,11 +74,11 @@ def train_model(train, val, model_parameters):
         
     return clf
 
-def write_model(model, path):
+def write_model(model, file_name, path="../models/"):
     
-    pickle.dump(model, open(path, 'wb'))
+    pickle.dump(model, open(path + file_name + ".pkl", 'wb'))
         
-def read_model(path):
+def read_model(file_name, path="../models/"):
     
-    model = pickle.load(open(path, 'rb'))
+    model = pickle.load(open(path + file_name + ".pkl", 'rb'))
     return model
