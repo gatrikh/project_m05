@@ -28,7 +28,7 @@ def accuracy(labels, pred):
 
     return acc, correct, incorrect
 
-def get_confusion_matrix(classifier,x_test,y_test,save_fig = False,savefile_name = ""):
+def get_confusion_matrix(classifier,x_test,y_test,save_fig = False, savefile_name = ""):
     
     fig2, ax2 = plt.subplots(figsize=(15, 15))
     disp2 = plot_confusion_matrix(classifier, x_test, y_test, ax=ax2,normalize = "true")
@@ -41,12 +41,12 @@ def get_confusion_matrix(classifier,x_test,y_test,save_fig = False,savefile_name
     
     if save_fig :
         if savefile_name != "":
-            savefile_name_normalized = "normalized_" + savefile_name
-            savefile_name_unnormalized = "unnormalized_" + savefile_name
+            savefile_name_normalized = "../reports/figures/normalized_" + savefile_name
+            savefile_name_unnormalized = "../reports/figures/unnormalized_" + savefile_name
             fig2.savefig(savefile_name_normalized)
             fig.savefig(savefile_name_unnormalized)
-            print("figure normalized saved under : ",savefile_name_normalized)
-            print("figure unnormalized saved under : ",savefile_name_unnormalized)
+            print("figure normalized saved under : ", savefile_name_normalized)
+            print("figure unnormalized saved under : ", savefile_name_unnormalized)
         else:
             print("please give a name for your file to save")
             

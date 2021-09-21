@@ -1,4 +1,6 @@
 import pandas as pd
+import os as os
+import pickle as pickle
 from sklearn.ensemble import RandomForestClassifier
 import itertools
 from tqdm import tqdm
@@ -50,26 +52,33 @@ def train_validate_models(train, val, models_dict):
         results.append(correct)      
 
     result = results.index(max(results))
+    best_model = models_dict[result]
 
-    return models_dict[result]
+    return best_model
 
-def train_model(train, val, parameters): 
+def train_model(train, val, model_parameters): 
     
     x_train, y_train = get_x_y_from_df(train)
     x_val, y_val = get_x_y_from_df(val)
 
-    models = generate_models_parameters(parameters)
-    best_model = train_validate_models(train, val, models)
-
     clf = RandomForestClassifier(
-            n_estimators=best_model["n_estimators"], 
-            criterion=best_model["criterion"],
-            max_depth=best_model["max_depth"],
-            min_samples_split=best_model["min_samples_split"],
-            max_features=best_model["max_features"],
+            n_estimators=model_parameters["n_estimators"], 
+            criterion=model_parameters["criterion"],
+            max_depth=model_parameters["max_depth"],
+            min_samples_split=model_parameters["min_samples_split"],
+            max_features=model_parameters["max_features"],
             random_state=0, 
             n_jobs=-1)
             
     clf.fit(pd.concat([x_train, x_val], axis=0), pd.concat([y_train, y_val], axis=0))
         
     return clf
+
+def write_model(model, path):
+    
+    pickle.dump(model, open(path, 'wb'))
+        
+def read_model(path):
+    
+    model = pickle.load(open(path, 'rb'))
+    return model

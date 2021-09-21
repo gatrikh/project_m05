@@ -39,7 +39,8 @@ class TestPreprocessing:
     def test_accuracy(self, config): 
         train_df, val_df, test_df, parameters = config 
 
-        clf = model.train_model(train_df, val_df, parameters)
+        model_paramters = {'n_estimators': 150, 'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2, 'max_features': None}
+        clf = model.train_model(train_df, val_df, model_paramters)
         x_test, y_test = model.get_x_y_from_df(test_df)
         acc, correct, incorrect = vis.accuracy(y_test, clf.predict(x_test))
         assert isinstance(acc, float)

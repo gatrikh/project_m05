@@ -1,7 +1,5 @@
 import pytest
-import numpy as np
-import pandas as pd
-import math
+import os
 from src.data import data as data
 from src.preprocessing import preprocessing as preprocess
 from src.models import model as model
@@ -51,9 +49,21 @@ class TestModels:
     def test_train_model(self, config):
 
         train_df, val_df, test_df, parameters = config
-
-        clf = model.train_model(train_df, val_df, parameters)
+        model_parameters = {'n_estimators': 150, 'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2, 'max_features': None}
+        clf = model.train_model(train_df, val_df, model_parameters)
         x_test, y_test = model.get_x_y_from_df(test_df)
         acc, _, _ = vis.accuracy(y_test, clf.predict(x_test))
         assert acc > 0.999
+    
+    def test_write_read_model(self, config): 
+        
+        train_df, val_df, test_df, parameters = config
+        model_parameters = {'n_estimators': 50, 'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2, 'max_features': "auto"}
+        clf = model.train_model(train_df, val_df, model_parameters)
+        model.write_model(clf, "model_rfc_test.pkl")
+        clf_1 = model.read_model("model_rfc_test.pkl")
+        assert type(clf) == type(clf_1)
+        assert os.path.isfile("model_rfc_test.pkl")
+        os.remove("model_rfc_test.pkl")
+        assert not os.path.isfile("model_rfc_test.pkl")
 
