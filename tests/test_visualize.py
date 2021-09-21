@@ -2,6 +2,7 @@ import pytest
 import numpy as np
 import pandas as pd
 import math
+import os
 from src.data import data as data
 from src.preprocessing import preprocessing as preprocess
 from src.models import model as model
@@ -48,4 +49,18 @@ class TestPreprocessing:
         assert correct > incorrect
         assert acc < 1
         assert 0.9 < acc and acc < 1.0
+        
+    def test_get_confusion_matrix(self, config):
+        _, _, test_df, _ = config 
+        x_test, y_test = model.get_x_y_from_df(test_df)
+        
+        #TODO
+        classifier = model.read_model('./src/models/')
+        
+        vis.get_confusion_matrix(classifier,x_test,y_test,True,"unit_test")
+        assert os.path.exists('normalized_unit_test.png')
+        os.remove('normalized_unit_test.png')
+        assert os.path.exists('unnormalized_unit_test.png')
+        os.remove('unnormalized_unit_test.png')
+        
 

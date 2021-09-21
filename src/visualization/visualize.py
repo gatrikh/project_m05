@@ -41,6 +41,7 @@ def get_confusion_matrix(classifier,x_test,y_test,save_fig = False,savefile_name
     
     if save_fig :
         if savefile_name != "":
+            #todo change directorty
             savefile_name_normalized = "normalized_" + savefile_name
             savefile_name_unnormalized = "unnormalized_" + savefile_name
             fig2.savefig(savefile_name_normalized)
