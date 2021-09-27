@@ -1,8 +1,8 @@
-# project_m05
+# Project M05
+
 Repository of the M05 project made by Lucas and Gary.
 
-Project Organization
-------------
+## 1. Project Organization
 
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
@@ -49,5 +49,37 @@ Project Organization
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
+## 2. Project installation
 
---------
+Go to the folder in which you want to import the git respository, open a terminal in it and type: 
+
+```bash
+git clone https://github.com/gatrikh/project_m05.git
+```
+
+Then move into the newly created folder: 
+
+```bash 
+cd project_m05/
+```
+
+Once in it, you must ensure that you have the correct environment to run the project. Firstly, the Python installation will be tested, indeed, **Python 3.8.8** is required: 
+
+```bash
+python test_environment.py
+```
+
+If the environment pass all test, you are ready to install the packages. Otherwise, you have to install **Python 3.8.8**. To install the packages, type the following command to ensure that you have the correct version of the required packages: 
+
+```bash
+pip install -r requirements.txt --upgrade
+```
+
+Now that the Python environment and the packages are installed, type the following commands to ensure that the project passes all tests. There are **13 tests and all must pass**: 
+
+```bash
+pytest tests
+```
+
+Once all the tests pass, the project is ready to run and you can go into `notebooks/Pipeline.ipynb` and run it. 
+
