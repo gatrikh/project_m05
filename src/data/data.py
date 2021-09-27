@@ -1,7 +1,21 @@
 import pandas as pd
 
 def load_data(path): 
-
+    """this function loads the dataset
+    
+    load the data set at the "path" location
+        
+    Parameters
+    ----------
+    path : String
+        the path of the dataset
+    
+    Returns
+    -------
+    pandas.DataFrame
+        the dataframe we read
+    """
+    
     columns = ["duration", "protocol_type", "service", "flag", "src_bytes", "dst_bytes", "land", "wrong_fragment", "urgent",
             "hot", "num_failed_logins", "logged_in", "num_compromised", "root_shell", "su_attempted", "num_root", 
             "num_file_creations", "num_shells", "num_access_files", "num_outbound_cmds", "is_host_login",
@@ -13,3 +27,4 @@ def load_data(path):
     df = pd.read_csv(path, compression='gzip', delimiter=",", names=columns, low_memory=False)
 
     return df
+
