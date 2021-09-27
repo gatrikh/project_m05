@@ -1,22 +1,15 @@
 import sys
 
-REQUIRED_PYTHON = "python3"
+REQUIRED_PYTHON = "3.8.2"
 
 
 def main():
-    system_major = sys.version_info.major
-    if REQUIRED_PYTHON == "python":
-        required_major = 2
-    elif REQUIRED_PYTHON == "python3":
-        required_major = 3
-    else:
-        raise ValueError("Unrecognized python interpreter: {}".format(
-            REQUIRED_PYTHON))
+    python_version = str(sys.version_info.major) + '.' + str(sys.version_info.minor) + '.' + str(sys.version_info.micro)
 
-    if system_major != required_major:
+    if REQUIRED_PYTHON != python_version:
         raise TypeError(
             "This project requires Python {}. Found: Python {}".format(
-                required_major, sys.version))
+                REQUIRED_PYTHON, python_version))
     else:
         print(">>> Development environment passes all tests!")
 
