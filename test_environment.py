@@ -1,6 +1,6 @@
 import sys
 
-REQUIRED_PYTHON = "3.8.2"
+REQUIRED_PYTHON = "3.8.8"
 
 
 def main():
