@@ -1,10 +1,8 @@
 import pandas as pd
 
 def load_data(path): 
-    """this function loads the dataset
-    
-    load the data set at the "path" location
-        
+    """load the data set at the "path" location
+         
     Parameters
     ----------
     path : String

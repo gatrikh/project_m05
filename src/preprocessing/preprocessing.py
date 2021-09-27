@@ -5,7 +5,23 @@ from sklearn.preprocessing import StandardScaler
 from sklearn import decomposition
 
 def features_encoder(df):
+    """encode the features of the dataframe
     
+    this function encodes all the features with the function 
+    sklearn.preprocessing.LabelEncoder()
+    we want to encode only the columns with a dtype "object"
+    we set the type of the encoded columns as "category"
+        
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        the dataset
+    
+    Returns
+    -------
+    pandas.DataFrame
+        the dataframe modified
+    """
     for col in df.columns: 
         if df[col].dtype == "object":
             
@@ -17,7 +33,21 @@ def features_encoder(df):
     return df
 
 def normalize(df): 
+    """normalized the dataframe
+    
+    this function normalizes the columns that are not categorical
+    it uses the  sklearn's StandardScaler()
 
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        the dataset
+    
+    Returns
+    -------
+    pandas.DataFrame
+        the dataframe modified
+    """
     for col in df.columns:
         scaler = StandardScaler()
         if str(df[col].dtypes) != "category":
@@ -26,7 +56,28 @@ def normalize(df):
     return df
 
 def split_data(df): 
-      
+    """split the data in train,dev and test set
+    
+    this function uses the train_test_split() function from sklearn
+    this separates each label independently. 
+    we do this because some labels have only a few samples 
+    and we want to have some samples of these labels distributed 
+    correctly between the 3 sets  
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        the dataset
+    
+    Returns
+    -------
+    train_df : pandas.DataFrame
+        the train Dataframe
+    val_df : pandas.DataFrame
+        the validation Dataframe
+    test_df : pandas.DataFrame
+        the test Dataframe
+    """  
     nbr_label = pd.unique(df["label"])
     nbr_label = nbr_label.sort_values()
     
