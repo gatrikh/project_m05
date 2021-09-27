@@ -6,8 +6,6 @@ from sklearn import decomposition
 
 def features_encoder(df):
     
-    df = df.copy()
-    
     for col in df.columns: 
         if df[col].dtype == "object":
             
@@ -19,8 +17,7 @@ def features_encoder(df):
     return df
 
 def normalize(df): 
-    
-    df = df.copy()
+
     for col in df.columns:
         scaler = StandardScaler()
         if str(df[col].dtypes) != "category":
@@ -29,8 +26,7 @@ def normalize(df):
     return df
 
 def split_data(df): 
-    
-    df = df.copy()   
+      
     nbr_label = pd.unique(df["label"])
     nbr_label = nbr_label.sort_values()
     
@@ -63,6 +59,8 @@ def split_data(df):
             
         elif subset.shape[0] == 1: 
             train_df = train_df.append(subset.iloc[0])
+        
+        df.drop(subset.index, inplace=True)
 
     return train_df, val_df, test_df
     

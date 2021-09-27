@@ -33,7 +33,6 @@ class TestPreprocessing:
         
         df_encoded = preprocess.features_encoder(config)
         df_norm = preprocess.normalize(df_encoded)
-        train_df, val_df, test_df = preprocess.split_data(df_norm)
 
         nbr_label = pd.unique(df_norm["label"])
         nbr_label = nbr_label.sort_values()
@@ -73,6 +72,7 @@ class TestPreprocessing:
         arr_len_val = np.array(list_len_val)
         arr_len_test = np.array(list_len_test)
 
+        train_df, val_df, test_df = preprocess.split_data(df_norm)
         len_train_df = train_df["label"].astype("int").value_counts().sort_index().to_numpy()
         len_val_df = val_df["label"].astype("int").value_counts().sort_index().to_numpy()
         len_test_df = test_df["label"].astype("int").value_counts().sort_index().to_numpy()
