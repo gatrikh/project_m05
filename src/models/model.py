@@ -7,13 +7,38 @@ from tqdm import tqdm
 from src.visualization import visualize as vis
 
 def get_x_y_from_df(df):
-
+    """get the features and labels from the dataset
+     
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        the dataset
+    
+    Returns
+    -------
+    x : pandas.DataFrame
+        the features of the dataset
+    y : pandas.core.series.Series
+        the labels of the dataset
+    """  
     x = df.drop(["label"], axis="columns")
     y = df["label"]
 
     return x, y
 
 def generate_models_parameters(parameters): 
+    """give a dict of individual model parameters from a list of parameters
+     
+    Parameters
+    ----------
+    parameters : dict
+        dict that contains a list of parameters to test
+    
+    Returns
+    -------
+    models_dict : dict
+        dict that contains individuals parameters for each model to test
+    """  
     
     models_parameters = []
     name_parameters = []
@@ -31,7 +56,23 @@ def generate_models_parameters(parameters):
     return models_dict
 
 def train_validate_models(train, val, models_dict): 
+    """train and validate severals models and peak the best parameters
+     
+    Parameters
+    ----------
+    train : pandas.DataFrame
+        the train set
+    val : pandas.DataFrame
+        the validation set
+    models_dict : dict
+        dict that contains individuals parameters for each model to test
     
+    Returns
+    -------
+    best_model : dict
+        dict that contains the best parameters for the given model
+
+    """  
     x_train, y_train = get_x_y_from_df(train)
     x_val, y_val = get_x_y_from_df(val)
 
@@ -57,7 +98,23 @@ def train_validate_models(train, val, models_dict):
     return best_model
 
 def train_model(train, val, model_parameters): 
+    """train and validate a model with the best parameters
+     
+    Parameters
+    ----------
+    train : pandas.DataFrame
+        the train set
+    val : pandas.DataFrame
+        the validation set
+    models_dict : dict
+        dict that contains the best parameters for the model
     
+    Returns
+    -------
+    clf : estimat or estimator instance
+        the estimator trained
+
+    """ 
     x_train, y_train = get_x_y_from_df(train)
     x_val, y_val = get_x_y_from_df(val)
 
@@ -75,10 +132,32 @@ def train_model(train, val, model_parameters):
     return clf
 
 def write_model(model, file_name, path="../models/"):
+    """save the model in pickle format
+     
+    Parameters
+    ----------
+    model : todo
+        the model to save
+    file_name : string
+        the name of the file where we save the model
+    path : string
+        the path where we save the model
+    """  
     
     pickle.dump(model, open(path + file_name + ".pkl", 'wb'))
         
 def read_model(file_name, path="../models/"):
+    """save the model in pickle format
+     
+    Parameters
+    ----------
+    model : todo
+        the model to save
+    file_name : string
+        the name of the file where we save the model
+    path : string
+        the path where we save the model
+    """ 
     
     model = pickle.load(open(path + file_name + ".pkl", 'rb'))
     return model
