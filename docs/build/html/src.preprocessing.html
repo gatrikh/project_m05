@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>src.preprocessing package &#8212; Project M05 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="src.visualization package" href="src.visualization.html" />
+    <link rel="prev" title="src.models package" href="src.models.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="src-preprocessing-package">
+<h1>src.preprocessing package<a class="headerlink" href="#src-preprocessing-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-src.preprocessing.preprocessing">
+<span id="src-preprocessing-preprocessing-module"></span><h2>src.preprocessing.preprocessing module<a class="headerlink" href="#module-src.preprocessing.preprocessing" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.preprocessing.preprocessing.features_encoder">
+<span class="sig-prename descclassname"><span class="pre">src.preprocessing.preprocessing.</span></span><span class="sig-name descname"><span class="pre">features_encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.preprocessing.preprocessing.features_encoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>encode the features of the dataframe</p>
+<p>this function encodes all the features with the function 
+sklearn.preprocessing.LabelEncoder()
+we want to encode only the columns with a dtype “object”
+we set the type of the encoded columns as “category”</p>
+<dl class="simple">
+<dt>df<span class="classifier">pandas.DataFrame</span></dt><dd><p>the dataset</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>pandas.DataFrame</dt><dd><p>the dataframe modified</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.preprocessing.preprocessing.normalize">
+<span class="sig-prename descclassname"><span class="pre">src.preprocessing.preprocessing.</span></span><span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.preprocessing.preprocessing.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>normalized the dataframe</p>
+<p>this function normalizes the columns that are not categorical
+it uses the  sklearn’s StandardScaler()</p>
+<dl class="simple">
+<dt>df<span class="classifier">pandas.DataFrame</span></dt><dd><p>the dataset</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>pandas.DataFrame</dt><dd><p>the dataframe modified</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.preprocessing.preprocessing.split_data">
+<span class="sig-prename descclassname"><span class="pre">src.preprocessing.preprocessing.</span></span><span class="sig-name descname"><span class="pre">split_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.preprocessing.preprocessing.split_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>split the data in train,dev and test set</p>
+<p>this function uses the train_test_split() function from sklearn
+this separates each label independently. 
+we do this because some labels have only a few samples 
+and we want to have some samples of these labels distributed 
+correctly between the 3 sets</p>
+<dl class="simple">
+<dt>df<span class="classifier">pandas.DataFrame</span></dt><dd><p>the dataset</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>train_df<span class="classifier">pandas.DataFrame</span></dt><dd><p>the train Dataframe</p>
+</dd>
+<dt>val_df<span class="classifier">pandas.DataFrame</span></dt><dd><p>the validation Dataframe</p>
+</dd>
+<dt>test_df<span class="classifier">pandas.DataFrame</span></dt><dd><p>the test Dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-src.preprocessing">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src.preprocessing" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Project M05</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="src.html">src package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">src</a><ul>
+  <li><a href="src.html">src package</a><ul>
+      <li>Previous: <a href="src.models.html" title="previous chapter">src.models package</a></li>
+      <li>Next: <a href="src.visualization.html" title="next chapter">src.visualization package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Lucas Devanthery & Gary Folli.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/src.preprocessing.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
