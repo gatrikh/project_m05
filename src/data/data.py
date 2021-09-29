@@ -10,7 +10,7 @@ def load_data(path):
     
     Returns
     -------
-    pandas.DataFrame
+    df : pandas.DataFrame
         the dataframe we read
     """
     
