@@ -18,6 +18,7 @@ setup(
         'tqdm==4.62.3',
         'numpy==1.21.2',
         'ipython==7.28.0',
-        'scikit_learn==0.24.1'
+        'scikit_learn==0.24.1', 
+        'coverage'
     ],
 )
