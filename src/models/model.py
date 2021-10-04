@@ -136,7 +136,7 @@ def write_model(model, file_name, path="../models/"):
      
     Parameters
     ----------
-    model : todo
+    model : sklearn.ensemble.RandomForestClassifier
         the model to save
     file_name : string
         the name of the file where we save the model
@@ -151,13 +151,17 @@ def read_model(file_name, path="../models/"):
      
     Parameters
     ----------
-    model : todo
-        the model to save
     file_name : string
         the name of the file where we save the model
     path : string
         the path where we save the model
-    """ 
+     
+    
+    Returns
+    -------
+    model : sklearn.ensemble.RandomForestClassifier
+        the trained model
+    """
     
     model = pickle.load(open(path + file_name + ".pkl", 'rb'))
     return model

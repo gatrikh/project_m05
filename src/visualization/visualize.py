@@ -105,7 +105,6 @@ def get_confusion_matrix(classifier, x_test, y_test, save_fig=False, savefile_na
         the unnormalized confusion matrix
     ax2 : matplotlib.axes._subplots.AxesSubplot
         the axe for the unnormalized matrix
-        
     """
     
     fig2, ax2 = plt.subplots(figsize=(15, 15))
