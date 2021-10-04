@@ -1,15 +1,15 @@
 import pytest
 import os
-from src.data import data as data
-from src.preprocessing import preprocessing as preprocess
-from src.models import model as model
-from src.visualization import visualize as vis
+from nid import data
+from nid import preprocess
+from nid import model
+from nid import visualize as vis
 
 class TestModels:
 
     @pytest.fixture(scope="class")
     def config(self):
-        df = data.load_data("data/kddcup_test.data.gz")
+        df = data.load_data("kddcup_test.data.gz")
         df_encoded = preprocess.features_encoder(df)
         df_norm = preprocess.normalize(df_encoded)
         train_df, val_df, test_df = preprocess.split_data(df_norm)
@@ -53,7 +53,7 @@ class TestModels:
         clf = model.train_model(train_df, val_df, model_parameters)
         x_test, y_test = model.get_x_y_from_df(test_df)
         acc, _, _ = vis.accuracy(y_test, clf.predict(x_test))
-        assert acc > 0.999
+        assert acc > 0.95
     
     def test_write_read_model(self, config): 
         

@@ -4,7 +4,7 @@ import pickle as pickle
 from sklearn.ensemble import RandomForestClassifier
 import itertools
 from tqdm import tqdm
-from src.visualization import visualize as vis
+from . import visualize as vis
 
 def get_x_y_from_df(df):
     """get the features and labels from the dataset
@@ -131,7 +131,7 @@ def train_model(train, val, model_parameters):
         
     return clf
 
-def write_model(model, file_name, path="../models/"):
+def write_model(model, file_name, path="./"):
     """save the model in pickle format
      
     Parameters
@@ -146,7 +146,7 @@ def write_model(model, file_name, path="../models/"):
     
     pickle.dump(model, open(path + file_name + ".pkl", 'wb'))
         
-def read_model(file_name, path="../models/"):
+def read_model(file_name, path="./"):
     """save the model in pickle format
      
     Parameters

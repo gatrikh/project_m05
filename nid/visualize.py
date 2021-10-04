@@ -77,7 +77,7 @@ def accuracy(labels, pred):
 
     return acc, correct, incorrect
 
-def get_confusion_matrix(classifier, x_test, y_test, save_fig=False, savefile_name="", path="../reports/figures/"):
+def get_confusion_matrix(classifier, x_test, y_test, save_fig=False, savefile_name="", path="./"):
     """gives the objects allowing to display the normalized and unnormalized confusion matrix 
     
     this function uses the plot_confusion_matrix from sklearn.metrics
@@ -122,6 +122,8 @@ def get_confusion_matrix(classifier, x_test, y_test, save_fig=False, savefile_na
             savefile_name_unnormalized = path + "unnormalized_" + savefile_name
             fig1.savefig(savefile_name_unnormalized)
             fig2.savefig(savefile_name_normalized)
+            print(">>> normalized_confusion_matrix.png & unnormalized_confusion_matrix.png generated!")
+
             
     return fig1, ax, fig2, ax2
     

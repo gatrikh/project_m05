@@ -3,16 +3,16 @@ import numpy as np
 import pandas as pd
 import math
 import os
-from src.data import data as data
-from src.preprocessing import preprocessing as preprocess
-from src.models import model as model
-from src.visualization import visualize as vis
+from nid import data
+from nid import preprocess
+from nid import model
+from nid import visualize as vis
 
 class TestPreprocessing:
 
     @pytest.fixture(scope="class")
     def config(self):
-        df = data.load_data("data/kddcup_test.data.gz")
+        df = data.load_data("kddcup_test.data.gz")
         df_encoded = preprocess.features_encoder(df)
         df_norm = preprocess.normalize(df_encoded)
         train_df, val_df, test_df = preprocess.split_data(df_norm)

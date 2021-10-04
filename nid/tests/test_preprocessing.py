@@ -2,14 +2,14 @@ import pytest
 import numpy as np
 import pandas as pd
 import math
-from src.data import data as data
-from src.preprocessing import preprocessing as preprocess
+from nid import data
+from nid import preprocess
 
 class TestPreprocessing:
 
     @pytest.fixture(scope="class")
     def config(self):
-        df = data.load_data("data/kddcup_test.data.gz")
+        df = data.load_data("kddcup_test.data.gz")
         return df
     
     def test_features_encoder(self, config):
@@ -32,9 +32,8 @@ class TestPreprocessing:
     def test_df_split(self, config):
         
         df_encoded = preprocess.features_encoder(config)
-        df_norm = preprocess.normalize(df_encoded)
 
-        nbr_label = pd.unique(df_norm["label"])
+        nbr_label = pd.unique(df_encoded["label"])
         nbr_label = nbr_label.sort_values()
 
         list_len_train = []
@@ -43,7 +42,7 @@ class TestPreprocessing:
 
         for label in nbr_label:
 
-            len_subset = df_norm[df_norm["label"] == label].shape[0]
+            len_subset = df_encoded[df_encoded["label"] == label].shape[0]
         
             if len_subset >= 4:
                 
@@ -72,7 +71,7 @@ class TestPreprocessing:
         arr_len_val = np.array(list_len_val)
         arr_len_test = np.array(list_len_test)
 
-        train_df, val_df, test_df = preprocess.split_data(df_norm)
+        train_df, val_df, test_df = preprocess.split_data(df_encoded)
         len_train_df = train_df["label"].astype("int").value_counts().sort_index().to_numpy()
         len_val_df = val_df["label"].astype("int").value_counts().sort_index().to_numpy()
         len_test_df = test_df["label"].astype("int").value_counts().sort_index().to_numpy()
