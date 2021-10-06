@@ -13,26 +13,9 @@ Our initial project hypthesis is:
 
 **“We can achieve a good classification accuracy (>** **90%** **on the test set) in classifying the network connections into the correct labels.”** 
 
-=======================
-1. Project Organization
-=======================
-
-project_m05
-
-── .github 	
-    ── workflows
-── docs 
-	── build	
-
-	── source
-── nid
-	── models	
-	
- 	── tests
-── presentation
 
 =======================
-2. Project installation
+1. Project installation
 =======================
 
 It is recommended to install an environment specific to this package with python 3.8:
@@ -111,7 +94,7 @@ Of course, once this is done you have to run the above command.
 The program will choose the model with the best results on the test set.
 
 ================
-3. Final results
+2. Final results
 ================
 
 Using an Random Forest Classification model, we achieved a classification accuracy of **0.9999** with **979650** correctly predicted labels and **46** incorrectly predicted labels. 

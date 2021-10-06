@@ -39,9 +39,8 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">READ ME</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#initial-project-hypothesis">0. Initial project hypothesis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#project-organization">1. Project Organization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#project-installation">2. Project installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#final-results">3. Final results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-installation">1. Project installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#final-results">2. Final results</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nid_package.html">NID package</a></li>
@@ -80,23 +79,8 @@
 <p>Our initial project hypthesis is:</p>
 <p><strong>“We can achieve a good classification accuracy (&gt;</strong> <strong>90%</strong> <strong>on the test set) in classifying the network connections into the correct labels.”</strong></p>
 </div>
-<div class="section" id="project-organization">
-<h2>1. Project Organization<a class="headerlink" href="#project-organization" title="Permalink to this headline"></a></h2>
-<p>project_m05</p>
-<dl class="simple">
-<dt>── .github</dt><dd><p>── workflows</p>
-</dd>
-<dt>── docs</dt><dd><p>── build
-── source</p>
-</dd>
-<dt>── nid</dt><dd><p>── models
-── tests</p>
-</dd>
-</dl>
-<p>── presentation</p>
-</div>
 <div class="section" id="project-installation">
-<h2>2. Project installation<a class="headerlink" href="#project-installation" title="Permalink to this headline"></a></h2>
+<h2>1. Project installation<a class="headerlink" href="#project-installation" title="Permalink to this headline"></a></h2>
 <p>It is recommended to install an environment specific to this package with python 3.8:</p>
 <p><code class="docutils literal notranslate"><span class="pre">`bash</span>
 <span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">nidenv</span> <span class="pre">python=3.8</span>
@@ -178,7 +162,7 @@ Of course, once this is done you have to run the above command.
 The program will choose the model with the best results on the test set.</p>
 </div>
 <div class="section" id="final-results">
-<h2>3. Final results<a class="headerlink" href="#final-results" title="Permalink to this headline"></a></h2>
+<h2>2. Final results<a class="headerlink" href="#final-results" title="Permalink to this headline"></a></h2>
 <p>Using an Random Forest Classification model, we achieved a classification accuracy of <strong>0.9999</strong> with <strong>979650</strong> correctly predicted labels and <strong>46</strong> incorrectly predicted labels.</p>
 <p>with these results, we cannot reject our basic hypothesis:</p>
 <p><strong>“We can achieve a good classification accuracy (&gt;</strong> <strong>90%</strong> <strong>on the test set) in classifying the network connections into the correct labels.”</strong></p>
