@@ -7,18 +7,10 @@ Welcome to Project M05's documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
-   :hidden:
 
    readme
-   modules
+   nid_package
+   
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NID package &mdash; Project M05 1.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="READ ME" href="readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Project M05
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">READ ME</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NID package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-nid.data">data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nid.model">model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nid.preprocess">preprocess</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nid.visualize">visualize</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Project M05</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>NID package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/nid_package.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="nid-package">
+<h1>NID package<a class="headerlink" href="#nid-package" title="Permalink to this headline"></a></h1>
+<div class="section" id="module-nid.data">
+<span id="data"></span><h2>data<a class="headerlink" href="#module-nid.data" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt id="nid.data.load_data">
+<code class="sig-prename descclassname">nid.data.</code><code class="sig-name descname">load_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.data.load_data" title="Permalink to this definition"></a></dt>
+<dd><p>load the data set at the “path” location</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>String</em>) – the path of the dataset</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>df</strong> – the dataframe we read</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nid.model">
+<span id="model"></span><h2>model<a class="headerlink" href="#module-nid.model" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt id="nid.model.generate_models_parameters">
+<code class="sig-prename descclassname">nid.model.</code><code class="sig-name descname">generate_models_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.model.generate_models_parameters" title="Permalink to this definition"></a></dt>
+<dd><p>give a dict of individual model parameters from a list of parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parameters</strong> (<em>dict</em>) – dict that contains a list of parameters to test</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>models_dict</strong> – dict that contains individuals parameters for each model to test</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nid.model.get_x_y_from_df">
+<code class="sig-prename descclassname">nid.model.</code><code class="sig-name descname">get_x_y_from_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.model.get_x_y_from_df" title="Permalink to this definition"></a></dt>
+<dd><p>get the features and labels from the dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pandas.DataFrame</em>) – the dataset</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>x</strong> (<em>pandas.DataFrame</em>) – the features of the dataset</p></li>
+<li><p><strong>y</strong> (<em>pandas.core.series.Series</em>) – the labels of the dataset</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nid.model.read_model">
+<code class="sig-prename descclassname">nid.model.</code><code class="sig-name descname">read_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">path</span><span class="o">=</span><span class="default_value">'./'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.model.read_model" title="Permalink to this definition"></a></dt>
+<dd><p>save the model in pickle format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> (<em>string</em>) – the name of the file where we save the model</p></li>
+<li><p><strong>path</strong> (<em>string</em>) – the path where we save the model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>model</strong> – the trained model</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>sklearn.ensemble.RandomForestClassifier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nid.model.train_model">
+<code class="sig-prename descclassname">nid.model.</code><code class="sig-name descname">train_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">val</span></em>, <em class="sig-param"><span class="n">model_parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.model.train_model" title="Permalink to this definition"></a></dt>
+<dd><p>train and validate a model with the best parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<em>pandas.DataFrame</em>) – the train set</p></li>
+<li><p><strong>val</strong> (<em>pandas.DataFrame</em>) – the validation set</p></li>
+<li><p><strong>models_dict</strong> (<em>dict</em>) – dict that contains the best parameters for the model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>clf</strong> – the estimator trained</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>estimat or estimator instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nid.model.train_validate_models">
+<code class="sig-prename descclassname">nid.model.</code><code class="sig-name descname">train_validate_models</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">val</span></em>, <em class="sig-param"><span class="n">models_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.model.train_validate_models" title="Permalink to this definition"></a></dt>
+<dd><p>train and validate severals models and peak the best parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<em>pandas.DataFrame</em>) – the train set</p></li>
+<li><p><strong>val</strong> (<em>pandas.DataFrame</em>) – the validation set</p></li>
+<li><p><strong>models_dict</strong> (<em>dict</em>) – dict that contains individuals parameters for each model to test</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>best_model</strong> – dict that contains the best parameters for the given model</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nid.model.write_model">
+<code class="sig-prename descclassname">nid.model.</code><code class="sig-name descname">write_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">path</span><span class="o">=</span><span class="default_value">'./'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.model.write_model" title="Permalink to this definition"></a></dt>
+<dd><p>save the model in pickle format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn.ensemble.RandomForestClassifier</em>) – the model to save</p></li>
+<li><p><strong>file_name</strong> (<em>string</em>) – the name of the file where we save the model</p></li>
+<li><p><strong>path</strong> (<em>string</em>) – the path where we save the model</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nid.preprocess">
+<span id="preprocess"></span><h2>preprocess<a class="headerlink" href="#module-nid.preprocess" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt id="nid.preprocess.features_encoder">
+<code class="sig-prename descclassname">nid.preprocess.</code><code class="sig-name descname">features_encoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.preprocess.features_encoder" title="Permalink to this definition"></a></dt>
+<dd><p>encode the features of the dataframe</p>
+<p>this function encodes all the features with the function
+sklearn.preprocessing.LabelEncoder()
+we want to encode only the columns with a dtype “object”
+we set the type of the encoded columns as “category”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pandas.DataFrame</em>) – the dataset</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dataframe modified</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nid.preprocess.normalize">
+<code class="sig-prename descclassname">nid.preprocess.</code><code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.preprocess.normalize" title="Permalink to this definition"></a></dt>
+<dd><p>normalized the dataframe</p>
+<p>this function normalizes the columns that are not categorical
+it uses the  sklearn’s StandardScaler()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pandas.DataFrame</em>) – the dataset</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dataframe modified</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nid.preprocess.split_data">
+<code class="sig-prename descclassname">nid.preprocess.</code><code class="sig-name descname">split_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.preprocess.split_data" title="Permalink to this definition"></a></dt>
+<dd><p>split the data in train,dev and test set</p>
+<p>this function uses the train_test_split() function from sklearn
+this separates each label independently.
+we do this because some labels have only a few samples
+and we want to have some samples of these labels distributed
+correctly between the 3 sets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pandas.DataFrame</em>) – the dataset</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>train_df</strong> (<em>pandas.DataFrame</em>) – the train Dataframe</p></li>
+<li><p><strong>val_df</strong> (<em>pandas.DataFrame</em>) – the validation Dataframe</p></li>
+<li><p><strong>test_df</strong> (<em>pandas.DataFrame</em>) – the test Dataframe</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nid.visualize">
+<span id="visualize"></span><h2>visualize<a class="headerlink" href="#module-nid.visualize" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt id="nid.visualize.accuracy">
+<code class="sig-prename descclassname">nid.visualize.</code><code class="sig-name descname">accuracy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">labels</span></em>, <em class="sig-param"><span class="n">pred</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.visualize.accuracy" title="Permalink to this definition"></a></dt>
+<dd><p>compute the accuracy for our model</p>
+<p>this function computes the accuracy given the labels and the predictions.
+it simply sums the number of labels that corresponds to the prediction
+and divids it by the length of labels</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>labels</strong> (<em>pandas.core.series.Series</em>) – the correct labels of our data</p></li>
+<li><p><strong>pred</strong> (<em>numpy.ndarray</em>) – the labels that we predicted</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>acc</strong> (<em>float</em>) – the accuracy of the predictions</p></li>
+<li><p><strong>correct</strong> (<em>int</em>) – the number of correct predictions</p></li>
+<li><p><strong>incorrect</strong> (<em>int</em>) – the number of incorrect predictions</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nid.visualize.dsp">
+<code class="sig-prename descclassname">nid.visualize.</code><code class="sig-name descname">dsp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">rows</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">columns</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.visualize.dsp" title="Permalink to this definition"></a></dt>
+<dd><p>displays the data</p>
+<p>this function increases the limit of rows and columns that can be displayed.
+It is useful in a jupyter notebook to display all data at once.
+once the data is displayed, the limit of rows and columns is reduced again.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – the data we want to display</p></li>
+<li><p><strong>rows</strong> (<em>int</em>) – the limit of rows we want to display</p></li>
+<li><p><strong>columns</strong> (<em>int</em>) – the limit of columns we want to display</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nid.visualize.get_confusion_matrix">
+<code class="sig-prename descclassname">nid.visualize.</code><code class="sig-name descname">get_confusion_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">classifier</span></em>, <em class="sig-param"><span class="n">x_test</span></em>, <em class="sig-param"><span class="n">y_test</span></em>, <em class="sig-param"><span class="n">save_fig</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">savefile_name</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">path</span><span class="o">=</span><span class="default_value">'./'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.visualize.get_confusion_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>gives the objects allowing to display the normalized and unnormalized confusion matrix</p>
+<p>this function uses the plot_confusion_matrix from sklearn.metrics</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>classifier</strong> (<em>estimat</em><em> or </em><em>estimator instance</em>) – the classifier from wich we want the confusion matrix</p></li>
+<li><p><strong>x_test</strong> (<em>pandas.core.frame.DataFrame</em>) – the test set</p></li>
+<li><p><strong>y_test</strong> (<em>pandas.core.series.Series</em>) – the test labels</p></li>
+<li><p><strong>save_fig</strong> (<em>bool</em>) – save the created figure if save_fig is true</p></li>
+<li><p><strong>savefile_name</strong> (<em>string</em>) – the path where we want to save the figure</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig1</strong> (<em>matplotlib.figure.Figure</em>) – the normalized confusion matrix</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes._subplots.AxesSubplot</em>) – the axe for the normalized matrix</p></li>
+<li><p><strong>fig2</strong> (<em>matplotlib.figure.Figure</em>) – the unnormalized confusion matrix</p></li>
+<li><p><strong>ax2</strong> (<em>matplotlib.axes._subplots.AxesSubplot</em>) – the axe for the unnormalized matrix</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nid.visualize.memory">
+<code class="sig-prename descclassname">nid.visualize.</code><code class="sig-name descname">memory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="headerlink" href="#nid.visualize.memory" title="Permalink to this definition"></a></dt>
+<dd><p>give the memory usage</p>
+<p>this function gives the memory used of a dataframe in Mb.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pandas.DataFrame</em>) – the data we want to know the memory used</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the memory used in Mb</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="readme.html" class="btn btn-neutral float-left" title="READ ME" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Lucas Devanthery &amp; Gary Folli.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
