@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project M05 &mdash; Project M05 1.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="src" href="modules.html" />
+    <link rel="prev" title="Welcome to Project M05’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Project M05
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project M05</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#initial-project-hypothesis">0. Initial project hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-installation">1. Project installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#final-results">2. Final results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Project M05</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Project M05</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/readme.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="project-m05">
+<h1>Project M05<a class="headerlink" href="#project-m05" title="Permalink to this headline"></a></h1>
+<p>Repository of the M05 project made by Lucas and Gary.</p>
+<p>The KDD Cup 1999 dataset (Third International Knowledge Discovery and Data Mining Tools Competition in 1999) is used to create a <strong>Network intrusions detector</strong>.</p>
+<div class="section" id="initial-project-hypothesis">
+<h2>0. Initial project hypothesis<a class="headerlink" href="#initial-project-hypothesis" title="Permalink to this headline"></a></h2>
+<p>Our initial project hypthesis is:</p>
+<p><strong>“We can achieve a good classification accuracy (&gt;</strong> <strong>90%</strong> <strong>on the test set) in classifying the network connections into the correct labels.”</strong></p>
+</div>
+<div class="section" id="project-installation">
+<h2>1. Project installation<a class="headerlink" href="#project-installation" title="Permalink to this headline"></a></h2>
+<p>Go to the folder in which you want to import the git respository, open a terminal in it and type:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/gatrikh/project_m05.git</span>
+<span class="pre">`</span></code></p>
+<p>Then move into the newly created folder:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">cd</span> <span class="pre">project_m05/</span>
+<span class="pre">`</span></code></p>
+<p>Once in it, you must ensure that you have the correct environment to run the project. Firstly, the Python installation will be tested, indeed, <strong>Python 3.8.8</strong> is required:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">python</span> <span class="pre">test_environment.py</span>
+<span class="pre">`</span></code></p>
+<p>If the environment pass all test, you are ready to install the packages. Otherwise, you have to install <strong>Python 3.8.8</strong>. To install the packages, type the following command to ensure that you have the correct version of the required packages:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span> <span class="pre">--upgrade</span>
+<span class="pre">`</span></code></p>
+<p>Now that the Python environment and the packages are installed, type the following commands to ensure that the project passes all tests. There are <strong>13 tests and all must pass</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">pytest</span> <span class="pre">tests</span>
+<span class="pre">`</span></code></p>
+<p>Once all the tests pass, the project is ready to run and you can go into <cite>notebooks/Pipeline.ipynb</cite> and run it.</p>
+</div>
+<div class="section" id="final-results">
+<h2>2. Final results<a class="headerlink" href="#final-results" title="Permalink to this headline"></a></h2>
+<p>Using an Random Forest Classification model, we achieved a classification accuracy of <strong>0.9999</strong> with <strong>979650</strong> correctly predicted labels and <strong>46</strong> incorrectly predicted labels.</p>
+<p><strong>We can thus verify our initial hypothesis that we would achieve an accuracy of more than 90% on the test set.</strong></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Project M05’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="src" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Lucas Devanthery &amp; Gary Folli.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

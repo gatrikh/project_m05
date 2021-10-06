@@ -7,10 +7,11 @@ Welcome to Project M05's documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 1
    :caption: Contents:
    :hidden:
 
+   readme
    modules
 
 
