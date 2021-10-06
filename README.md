@@ -23,7 +23,9 @@ Our initial project hypthesis is:
 |   +---tests
 +---presentation
 
+
 ## 2. Project installation
+
 
 It is recommended to install an environment specific to this package with python 3.8:
 
@@ -57,10 +59,15 @@ pip install -e .
 
 From here, you can launch the project. To do this, we need to execute the main function. 
 the main function takes 4 arguments as parameters: 
-* -path PATH    : Path of KDD99 Cup dataset in .gz format **IS REQUIRED**
-* -test         : Running the package tests
-* -fig          : Saving figures of confusion matrices in working directory
-* -train        : Retrain completely the model and save it in the working directory
+
+* -path PATH    
+    * Path of KDD99 Cup dataset in .gz format **IS REQUIRED**
+* -test         
+    * Run the package tests
+* -fig          
+    * Save figures of confusion matrices in working directory
+* -train        
+    * Retrain completely the model and save it in the working directory
 
 we can for example launch the base code with its tests and confusion matrices :
 
@@ -88,10 +95,16 @@ if you want to retrain the model you can use this command :
 python -m nid -path data/kddcup.data.gz -train
 ```
 
-if you want to change the parameters of the random forest, you can do it in the file nid/__main__.py. In this file, at line 71, there is a dict "parameters", you can add parameters, as many as you want, as long as it respects the parameters of the random forest classifier of sklearn.ensemble (https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html).
-Of course, once this is done you have to run the above command. The program will choose the model with the best results on the test set
+if you want to change the parameters of the random forest, you can do it in the file nid/__main__.py. 
+In this file, at line 71, there is a dict "parameters", you can add parameters, as many as you want, 
+as long as it respects the parameters of the random forest classifier of sklearn.ensemble 
+(https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html).
+Of course, once this is done you have to run the above command. 
+The program will choose the model with the best results on the test set.
+
 
 ## 3. Final results
+
 
 Using an Random Forest Classification model, we achieved a classification accuracy of **0.9999** with **979650** correctly predicted labels and **46** incorrectly predicted labels. 
 
