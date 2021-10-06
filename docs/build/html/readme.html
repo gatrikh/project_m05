@@ -82,16 +82,18 @@
 </div>
 <div class="section" id="project-organization">
 <h2>1. Project Organization<a class="headerlink" href="#project-organization" title="Permalink to this headline"></a></h2>
-<p>+—.github
-|   +—workflows
-+—data
-+—docs
-|   +—build
-|   +—source
-+—nid
-|   +—models
-|   +—tests
-+—presentation</p>
+<p>project_m05</p>
+<dl class="simple">
+<dt>── .github</dt><dd><p>── workflows</p>
+</dd>
+<dt>── docs</dt><dd><p>── build
+── source</p>
+</dd>
+<dt>── nid</dt><dd><p>── models
+── tests</p>
+</dd>
+</dl>
+<p>── presentation</p>
 </div>
 <div class="section" id="project-installation">
 <h2>2. Project installation<a class="headerlink" href="#project-installation" title="Permalink to this headline"></a></h2>
@@ -116,11 +118,40 @@
 <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span>
 <span class="pre">`</span></code></p>
 <p>From here, you can launch the project. To do this, we need to execute the main function.
-the main function takes 4 arguments as parameters:
-* -path PATH    : Path of KDD99 Cup dataset in .gz format <strong>IS REQUIRED</strong>
-* -test         : Running the package tests
-* -fig          : Saving figures of confusion matrices in working directory
-* -train        : Retrain completely the model and save it in the working directory</p>
+the main function takes 4 arguments as parameters:</p>
+<ul>
+<li><dl class="simple">
+<dt>-path PATH</dt><dd><ul class="simple">
+<li><p>Path of KDD99 Cup dataset in .gz format <strong>IS REQUIRED</strong></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="option-list">
+<dt><kbd><span class="option">-t<var>est</var></span></kbd></dt>
+<dd><ul class="simple">
+<li><p>Run the package tests</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="option-list">
+<dt><kbd><span class="option">-f<var>ig</var></span></kbd></dt>
+<dd><ul class="simple">
+<li><p>Save figures of confusion matrices in working directory</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="option-list">
+<dt><kbd><span class="option">-t<var>rain</var></span></kbd></dt>
+<dd><ul class="simple">
+<li><p>Retrain completely the model and save it in the working directory</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 <p>we can for example launch the base code with its tests and confusion matrices :</p>
 <p><code class="docutils literal notranslate"><span class="pre">`bash</span>
 <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">nid</span> <span class="pre">-path</span> <span class="pre">data/kddcup.data.gz</span> <span class="pre">-test</span> <span class="pre">-fig</span>
@@ -139,8 +170,12 @@ if you want to retrain the model you can use this command :</p>
 <p><code class="docutils literal notranslate"><span class="pre">`bash</span>
 <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">nid</span> <span class="pre">-path</span> <span class="pre">data/kddcup.data.gz</span> <span class="pre">-train</span>
 <span class="pre">`</span></code></p>
-<p>if you want to change the parameters of the random forest, you can do it in the file nid/__main__.py. In this file, at line 71, there is a dict “parameters”, you can add parameters, as many as you want, as long as it respects the parameters of the random forest classifier of sklearn.ensemble (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html</a>).
-Of course, once this is done you have to run the above command. The program will choose the model with the best results on the test set.</p>
+<p>if you want to change the parameters of the random forest, you can do it in the file nid/__main__.py.
+In this file, at line 71, there is a dict “parameters”, you can add parameters, as many as you want,
+as long as it respects the parameters of the random forest classifier of sklearn.ensemble
+(<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html</a>).
+Of course, once this is done you have to run the above command.
+The program will choose the model with the best results on the test set.</p>
 </div>
 <div class="section" id="final-results">
 <h2>3. Final results<a class="headerlink" href="#final-results" title="Permalink to this headline"></a></h2>
