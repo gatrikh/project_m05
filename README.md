@@ -10,9 +10,7 @@ Our initial project hypthesis is:
 
 **“We can achieve a good classification accuracy (>** **90%** **on the test set) in classifying the network connections into the correct labels.”** 
 
-
 ## 1. Project installation
-
 
 It is recommended to install an environment specific to this package with python 3.8:
 
@@ -20,7 +18,7 @@ It is recommended to install an environment specific to this package with python
 conda create --name nidenv python=3.8
 ```
 
-and to activate it : 
+and to activate it: 
 
 ```bash 
 conda activate nidenv
@@ -32,7 +30,7 @@ Go to the folder in which you want to import the git respository, open a termina
 git clone https://github.com/gatrikh/project_m05.git
 ```
 
-Then move into the newly created folder : 
+Then move into the newly created folder: 
 
 ```bash 
 cd project_m05/
@@ -56,42 +54,54 @@ the main function takes 4 arguments as parameters:
 * -train        
     * Retrain completely the model and save it in the working directory
 
-we can for example launch the base code with its tests :
+The -fig and -train parameters have no effect when using the -test parameter at the same time. The -test parameter has precedence over the other parameters. When the -test parameter is not specified, the training procedure is defaultly executed.
+
+We can launch the module tests by writting:
 
 ```bash
 python -m nid -path data/kddcup.data.gz -test
 ```
 
-Once the test is launched, you can check the coverage of the package : 
+Once the test is launched, you can check the coverage of the package: 
 
 ```bash
 coverage report -m
 ```
 
-if you juste want to lauch the base code :
+If you juste want to lauch the base code with the default procedure where the model is loaded from a pickle file:
 
 ```bash
 python -m nid -path data/kddcup.data.gz
 ```
 
-**NOTE** 
-You can't use the -train and -fig arguments with -test
-if you want to retrain the model you can use this command :
+If you want to fully retrain the model and save it in the working directory:
 
 ```bash
 python -m nid -path data/kddcup.data.gz -train
 ```
 
-if you want to change the parameters of the random forest, you can do it in the file nid/__main__.py. 
-In this file, at line 71, there is a dict "parameters", you can add parameters, as many as you want, 
+**NOTE**
+The full training procedure takes a long time (more than 1 hour on a 8 cores i9 @ 2.6 Ghz)
+
+If you want to save the correlation matrix of the results at the end of the model execution you can use this command :
+
+```bash
+python -m nid -path data/kddcup.data.gz -fig
+```
+
+**NOTE**
+You can use both -fig and -train together. 
+
+If you want to change the parameters of the random forest, you can do it in the file nid/__main__.py. In this file, at line 71, there is a dict "parameters", you can add parameters, as many as you want, 
 as long as it respects the parameters of the random forest classifier of sklearn.ensemble 
 (https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html).
-Of course, once this is done you have to run the above command. 
+Of course, once this is done you have to run the -train command. 
 The program will choose the model with the best results on the test set.
 
+**NOTE**
+You can also use the API of the module by simply importing it and using the function you want in the module. 
 
 ## 2. Final results
-
 
 Using an Random Forest Classification model, we achieved a classification accuracy of **0.9999** with **979650** correctly predicted labels and **46** incorrectly predicted labels. 
 
