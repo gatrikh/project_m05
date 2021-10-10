@@ -60,10 +60,10 @@ the main function takes 4 arguments as parameters:
 * -train        
 	* Retrain completely the model and save it in the working directory
 
-we can for example launch the base code with its tests and confusion matrices :
+we can for example launch the base code with its tests :
 
 ```bash
-python -m nid -path data/kddcup.data.gz -test -fig
+python -m nid -path data/kddcup.data.gz -test
 ```
 
 Once the test is launched, you can check the coverage of the package : 
@@ -79,7 +79,7 @@ python -m nid -path data/kddcup.data.gz
 ```
 
 **NOTE** 
-You can't use the -train argument with -test and -fig
+You can't use the -train and -fig arguments with -test
 if you want to retrain the model you can use this command :
 
 ```bash
