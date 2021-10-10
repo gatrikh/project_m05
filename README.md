@@ -99,7 +99,7 @@ Of course, once this is done you have to run the -train command.
 The program will choose the model with the best results on the test set.
 
 **NOTE**
-You can also use the API of the module by simply importing it and using the function you want in the module. 
+You can also use the API of the module by simply importing it and using the functions you want in the module. 
 
 ## 2. Final results
 
